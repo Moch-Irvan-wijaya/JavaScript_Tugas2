@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tugas 2 (Data Pegawai)</title>
+</head>
+<body>
+  <h2 align="center">DATA PEGAWAI</h2>
+  <hr/>
+
+  <script>
+    // deklarasi dan inisialisasi variabel data pegawai
+    let pegawai = "Dodi Prayodi";
+    let umur = 25;
+    let jabatan = "Manajer";
+    let status = "Menikah";
+
+    // variabel untuk komponen gaji
+    let gapok = 0;
+
+    // struktur kendali if untuk menentukan gaji pokok berdasarkan jabatan
+    if (jabatan == "Manajer") gapok = 15000000;
+    else if (jabatan == "Asisten Manajer") gapok = 10000000;
+    else if (jabatan == "Staff") gapok = 5000000;
+    else gapok = 0;
+
+    // tunjangan jabatan = 15% dari gaji pokok
+    let tunjanganJabatan = 15 / 100 * gapok;
+
+    // BPJS = 10% dari gaji pokok
+    let bpjs = 10 / 100 * gapok;
+
+    // struktur kendali ternary: jika menikah, tunjangan keluarga 20% dari gaji pokok
+    let tunjanganKeluarga = (status == "Menikah") ? 20 / 100 * gapok : 0;
+
+    // total gaji = jumlah seluruh komponen gaji
+    let totalGaji = gapok + tunjanganJabatan + bpjs + tunjanganKeluarga;
+
+    // cetak data dalam bentuk tabel
+    document.write("<table border='1' cellpadding='8' cellspacing='0' width='100%'>");
+
+    // judul kolom menggunakan thead
+    document.write("<thead>");
+    document.write("<tr>");
+    document.write("<th>Nama Pegawai</th>");
+    document.write("<th>Umur</th>");
+    document.write("<th>Jabatan</th>");
+    document.write("<th>Status</th>");
+    document.write("<th>Gaji Pokok</th>");
+    document.write("<th>Tunjangan Jabatan</th>");
+    document.write("<th>BPJS</th>");
+    document.write("<th>Tunjangan Keluarga</th>");
+    document.write("</tr>");
+    document.write("</thead>");
+
+    // isi data menggunakan tbody
+    document.write("<tbody>");
+    document.write("<tr>");
+    document.write("<td>" + pegawai + "</td>");
+    document.write("<td>" + umur + " tahun</td>");
+    document.write("<td>" + jabatan + "</td>");
+    document.write("<td>" + status + "</td>");
+    document.write("<td>Rp. " + gapok + "</td>");
+    document.write("<td>Rp. " + tunjanganJabatan + "</td>");
+    document.write("<td>Rp. " + bpjs + "</td>");
+    document.write("<td>Rp. " + tunjanganKeluarga + "</td>");
+    document.write("</tr>");
+    document.write("</tbody>");
+
+    // total gaji menggunakan tfoot
+    document.write("<tfoot>");
+    document.write("<tr>");
+    document.write("<th colspan='7' align='right'>Total Gaji</th>");
+    document.write("<th>Rp. " + totalGaji + "</th>");
+    document.write("</tr>");
+    document.write("</tfoot>");
+
+    document.write("</table>");
+  </script>
+</body>
+</html>
